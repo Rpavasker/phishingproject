@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up - Phishing Detection</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="shell">
+            <div class="left-panel">
+                <div class="brand">
+                    <div class="brand-icons">
+                        <span>🎣</span>
+                        <span>🛡️</span>
+                    </div>
+                    <span>Phishing Shield</span>
+                </div>
+
+                <h1 class="hero-title">Stay alert against suspicious digital threats.</h1>
+
+                <p class="hero-text">
+                    This website helps users evaluate suspicious emails, messages, and text-based scams using a machine learning phishing detection model.
+                </p>
+
+                <div class="feature-list">
+                    <div class="feature-item"><strong>Account Access:</strong> Create an account and securely log in to the system.</div>
+                    <div class="feature-item"><strong>Threat Screening:</strong> Submit suspicious text and receive a phishing or legitimate prediction.</div>
+                    <div class="feature-item"><strong>User Safety:</strong> Designed to support awareness and safer online communication.</div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="card">
+                    <div class="icon-strip">
+                        <span>🔐</span>
+                        <span>📩</span>
+                        <span>🎣</span>
+                    </div>
+
+                    <h2>Create Account</h2>
+                    <p class="subtitle">Sign up to start using the phishing detection dashboard.</p>
+
+                    {% if message %}
+                        <p class="message">{{ message }}</p>
+                    {% endif %}
+
+                    <form method="post" action="/signup">
+                        <label>Username</label>
+                        <input type="text" name="username" placeholder="Enter username" required>
+
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="Enter password" required>
+
+                        <button type="submit">Create Account</button>
+                    </form>
+
+                    <p class="link-text">
+                        Already have an account? <a href="/login">Login here</a>
+                    </p>
+
+                    <div class="footer">
+                        <p><strong>Developed by:</strong> Ranjana Pavasker</p>
+                        <p><strong>Contact:</strong> rpavasker@my.harrisburgu.edu</p>
+                        <div class="small-icons">
+                            <span>🕵️</span>
+                            <span>🐟</span>
+                            <span>⚠️</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

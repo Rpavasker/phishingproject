@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phishing Detection Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="shell">
+            <div class="left-panel">
+                <div class="brand">
+                    <div class="brand-icons">
+                        <span>🎣</span>
+                        <span>🛡️</span>
+                    </div>
+                    <span>Phishing Shield</span>
+                </div>
+
+                <h1 class="hero-title">Analyze suspicious text before you trust it.</h1>
+
+                <p class="hero-text">
+                    Paste an email, SMS, or suspicious message into the detector. The trained machine learning model evaluates the text and returns a phishing-related prediction.
+                </p>
+
+                <div class="feature-list">
+                    <div class="feature-item"><strong>Input Analysis:</strong> Accepts suspicious text content for review.</div>
+                    <div class="feature-item"><strong>Prediction Result:</strong> Displays whether the content appears phishing-related or legitimate.</div>
+                    <div class="feature-item"><strong>Security Awareness:</strong> Helps demonstrate how phishing detection tools can support safer online behavior.</div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="card">
+                    <div class="top-bar">
+                        <span class="welcome">Hi, {{ username }}</span>
+                        <a class="top-link" href="/">Logout</a>
+                    </div>
+
+                    <div class="icon-strip">
+                        <span>📩</span>
+                        <span>⚠️</span>
+                        <span>🎣</span>
+                        <span>🔎</span>
+                    </div>
+
+                    <h2>Phishing Detector</h2>
+                    <p class="subtitle">Paste suspicious content below to analyze it.</p>
+
+                    {% if message %}
+                        <p class="message">{{ message }}</p>
+                    {% endif %}
+
+                    {% if result %}
+                        <div class="prediction {% if 'PHISHING' in result %}phishing{% else %}legitimate{% endif %}">
+                            Result: {{ result }}
+                        </div>
+                    {% endif %}
+
+                    {% if confidence %}
+                        <p class="message">Confidence: {{ confidence }}</p>
+                    {% endif %}
+
+                    <form method="post" action="/predict-ui">
+                        <input type="hidden" name="username" value="{{ username }}">
+                        <label>Message or Email Text</label>
+                        <textarea name="text" placeholder="Paste suspicious email, SMS, or message here..." required>{{ text }}</textarea>
+                        <button type="submit">Analyze</button>
+                    </form>
+
+                    <div class="info-box">
+                        This website is built to detect potential phishing attempts in text-based communication. It supports awareness by classifying suspicious content as phishing or legitimate using a trained machine learning model.
+                    </div>
+
+                    <div class="footer">
+                        <p><strong>Developed by:</strong> Ranjana Pavasker</p>
+                        <p><strong>Contact:</strong> rpavasker@my.harrisburgu.edu</p>
+                        <div class="small-icons">
+                            <span>🕵️</span>
+                            <span>🐟</span>
+                            <span>📨</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
